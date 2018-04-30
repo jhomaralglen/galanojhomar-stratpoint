@@ -1,8 +1,8 @@
 $(function(){
 	
-	$("#profileTable").DataTable();
+	$('#profileTable').DataTable();
 	
-	$('.trow').on('click', function(){
+	$('#profileTable tbody').on('click', 'tr', function(){
 		var id = $(this).attr('value');
 		window.location.replace("/view/?id="+id);
 	});

@@ -15,7 +15,7 @@
 			<div class="row">
 				<h1>Profile List</h1>
 				<table id="profileTable" class="table table-striped table-bordered" style="width:100%">
-					<thead class="thead-light">
+					<thead class="thead-light	">
 						<tr>
 							<th>Name</th>
 							<th style="text-align: center;">Age</th>
@@ -24,11 +24,11 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="profile : ${profiles}" class="trow" th:value="${profile.id}">
+						<tr th:each="profile : ${profiles}" th:value="${profile.id}">
 							<td th:text="${profile.name.first + ' ' + profile.name.middle + '. ' + profile.name.last}"></td>
-							<td th:text="${profile.age}"></td>
-							<td><input type="checkbox" th:checked="${profile.active}"></td>
-							<td><input type="checkbox" th:checked="${profile.blocked}"></td>
+							<td style="text-align: center;" th:text="${profile.age}"></td>
+							<td style="text-align: center;"><input type="checkbox" th:checked="${profile.active}"></td>
+							<td style="text-align: center;"><input type="checkbox" th:checked="${profile.blocked}"></td>
 						</tr>
 					</tbody>
 				</table>
