@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>View Profile</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css"/>
+	</head>
+	<body>
+		<!-- IF PROFILE EXIST -->
+		<th:block th:if="${profile.id}">
+		<div class="container">
+			<div class="row">
+				<h1>View Profile</h1>
+				<table class="table">
+					<tr>
+						<td><img alt="Profile picture" th:src="${profile.picture}" height="100" width="100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 40px; font-weight: bold;" th:text="${profile.name.first + ' ' + profile.name.middle + '. ' + profile.name.last}"></span></td>
+					</tr>
+				</table>
+				<table class="table">
+					<tr>
+						<td>ID: </td>
+						<td th:text="${profile.id}"></td>
+					</tr>
+					<tr>
+						<td>Profile: </td>
+						<td th:text="${profile.profile}"></td>
+					</tr>
+					<tr>
+						<td>Email: </td>
+						<td th:text="${profile.email}"></td>
+					</tr>
+					<tr>
+						<td>Phone: </td>
+						<td th:text="${profile.phone}"></td>
+					</tr>
+					<tr>
+						<td>Address: </td>
+						<td th:text="${profile.address}"></td>
+					</tr>
+					<tr>
+						<td>Age: </td>
+						<td th:text="${profile.age}"></td>
+					</tr>
+					<tr>
+						<td>Balance: </td>
+						<td th:text="${profile.balance}"></td>
+					</tr>
+				</table>
+				<a th:href="@{/home}">Return to home.</a>
+			</div>
+		</div>
+		</th:block>
+		<!-- IF PROFILE DOES NOT EXIST -->
+		<th:block th:if="${profile.id == null}">
+		<div class="container" th:unless="${profile == null}">
+				<h1 style="text-align: center; color: red;">Profile not found.</h1>
+				<h2 style="text-align:center"><a th:href="@{/home}">Return to home.</a></h2>
+		</div>
+		</th:block>
+	</body>
+</html>
